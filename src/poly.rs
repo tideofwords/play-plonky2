@@ -9,16 +9,16 @@ use plonky2::plonk::circuit_data::{CircuitConfig, CircuitData, CommonCircuitData
 use plonky2::plonk::config::{GenericConfig, PoseidonGoldilocksConfig};
 use plonky2::plonk::proof::ProofWithPublicInputs;
 
-struct VerifiablePolyProof<
+pub(crate) struct VerifiablePolyProof<
     F: RichField + Extendable<D>, 
     C: GenericConfig<D, F = F>,
     const D: usize
 > {
-    verifier_circuit_data: VerifierCircuitData<F, C, D>,
-    proof: ProofWithPublicInputs<F, C, D>,
+    pub(crate) verifier_circuit_data: VerifierCircuitData<F, C, D>,
+    pub(crate) proof: ProofWithPublicInputs<F, C, D>,
 }
 
-fn gen_poly_proof <
+pub(crate) fn gen_poly_proof <
     F: RichField + Extendable<D>, 
     C: GenericConfig<D, F = F>,
     const D: usize
